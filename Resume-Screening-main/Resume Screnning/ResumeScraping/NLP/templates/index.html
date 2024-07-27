@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Screener</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a; /* Dark background for a futuristic vibe */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #292929; /* Slightly lighter background */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #ffffff; /* White heading text */
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        input[type="file"] {
+            display: block;
+            margin: 20px auto;
+            border: 2px dashed #ffffff; /* White dashed border for the file input */
+            padding: 10px;
+            border-radius: 6px;
+            background-color: transparent;
+            color: #ffffff;
+            font-size: 16px;
+            width: 97%;
+            text-align: center;
+        }
+        input[type="file"]:hover {
+            border-color: #007bff; /* Hover effect: blue border */
+        }
+        button {
+            display: block;
+            margin: 0 auto;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #ffffff; /* White output section */
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resume Screener</h1>
+        <form  method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+        <input type="file" id="resumeFile" name="pdf" accept=".pdf" placeholder="Choose a resume file">
+        <button onclick="processResume()" type="submit">Analyze Resume</button>
+        <div id="output">{{pridiction}}</div>
+        </form>
+    </div>
+
+    <script>
+        function processResume() {
+            // Your logic for analyzing the resume goes here
+            // For now, let's just display a placeholder message
+            const outputElement = document.getElementById("output");
+            outputElement.textContent = "Resume analysis results will appear here.";
+        }
+    </script>
+</body>
+</html>
